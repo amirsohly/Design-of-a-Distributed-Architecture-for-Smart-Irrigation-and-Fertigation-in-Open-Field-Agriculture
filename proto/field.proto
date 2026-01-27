@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package field;
+
+service FieldService {
+  rpc SendSensorData (SensorData) returns (Ack);
+  rpc StartIrrigation (IrrigationRequest) returns (Ack);
+}
+
+message SensorData {
+  float soil_moisture = 1;
+  float temperature = 2;
+}
+
+message IrrigationRequest {
+  int32 duration_seconds = 1;
+}
+
+message Ack {
+  string message = 1;
+}
+
